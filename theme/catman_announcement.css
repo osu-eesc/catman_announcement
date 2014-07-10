@@ -1,0 +1,17 @@
+/* catman announcements styles */
+div.announcement {
+	background-color: #FEFEEE;
+  background-image: url('announcement-icon.png');
+  background-position: 5px 1em;
+  background-repeat: no-repeat;
+	border: 1px solid #777777;
+  color: #000000;
+  min-height: 32px;
+  padding: 10px 10px 15px 50px;
+  text-transform: none;
+}
+
+.view-catman-announcement .views-field-title {
+  font-weight: 550;
+  font-size: 1.125em;
+}

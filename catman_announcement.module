@@ -1,0 +1,9 @@
+<?php
+/**
+ * @file
+ * Code for the Catman Announcement feature.
+ */
+
+include_once 'catman_announcement.features.inc';
+
+drupal_add_css(drupal_get_path('module', 'catman_announcement') .'/theme/catman_announcement.css');
