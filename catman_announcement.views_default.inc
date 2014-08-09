@@ -13,7 +13,7 @@ function catman_announcement_views_default_views() {
   $view = new view();
   $view->name = 'catman_announcement';
   $view->description = 'Provides views for announcements';
-  $view->tag = 'default';
+  $view->tag = 'catman';
   $view->base_table = 'node';
   $view->human_name = 'Catman announcement';
   $view->core = 7;
