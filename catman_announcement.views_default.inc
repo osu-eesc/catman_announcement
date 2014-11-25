@@ -30,7 +30,8 @@ function catman_announcement_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -101,12 +102,14 @@ function catman_announcement_views_default_views() {
   $handler->display->display_options['filters']['field_announcement_date_value']['table'] = 'field_data_field_announcement_date';
   $handler->display->display_options['filters']['field_announcement_date_value']['field'] = 'field_announcement_date_value';
   $handler->display->display_options['filters']['field_announcement_date_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_announcement_date_value']['default_date'] = '12AM today';
+  $handler->display->display_options['filters']['field_announcement_date_value']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_announcement_date_value']['default_date'] = 'now';
   /* Filter criterion: Content: Publish dates - end date (field_announcement_date:value2) */
   $handler->display->display_options['filters']['field_announcement_date_value2']['id'] = 'field_announcement_date_value2';
   $handler->display->display_options['filters']['field_announcement_date_value2']['table'] = 'field_data_field_announcement_date';
   $handler->display->display_options['filters']['field_announcement_date_value2']['field'] = 'field_announcement_date_value2';
   $handler->display->display_options['filters']['field_announcement_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['granularity'] = 'minute';
   $handler->display->display_options['filters']['field_announcement_date_value2']['default_date'] = 'now';
 
   /* Display: admin page */
@@ -278,12 +281,14 @@ function catman_announcement_views_default_views() {
   $handler->display->display_options['filters']['field_announcement_date_value']['table'] = 'field_data_field_announcement_date';
   $handler->display->display_options['filters']['field_announcement_date_value']['field'] = 'field_announcement_date_value';
   $handler->display->display_options['filters']['field_announcement_date_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_announcement_date_value']['default_date'] = '12AM today';
+  $handler->display->display_options['filters']['field_announcement_date_value']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_announcement_date_value']['default_date'] = 'now';
   /* Filter criterion: Content: Publish dates - end date (field_announcement_date:value2) */
   $handler->display->display_options['filters']['field_announcement_date_value2']['id'] = 'field_announcement_date_value2';
   $handler->display->display_options['filters']['field_announcement_date_value2']['table'] = 'field_data_field_announcement_date';
   $handler->display->display_options['filters']['field_announcement_date_value2']['field'] = 'field_announcement_date_value2';
   $handler->display->display_options['filters']['field_announcement_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['granularity'] = 'minute';
   $handler->display->display_options['filters']['field_announcement_date_value2']['default_date'] = 'now';
   /* Filter criterion: Content: Display on homepage (field_display_on_homepage) */
   $handler->display->display_options['filters']['field_display_on_homepage_value']['id'] = 'field_display_on_homepage_value';
@@ -317,6 +322,52 @@ function catman_announcement_views_default_views() {
   $handler->display->display_options['arguments']['field_announcement_reference_nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_announcement_reference_nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_announcement_reference_nid']['specify_validation'] = TRUE;
+
+  /* Display: Checkout block */
+  $handler = $view->new_display('block', 'Checkout block', 'block_1');
+  $handler->display->display_options['display_description'] = 'Displays annoucenents on checkout pages';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'announcement' => 'announcement',
+  );
+  /* Filter criterion: Content: Publish dates -  start date (field_announcement_date) */
+  $handler->display->display_options['filters']['field_announcement_date_value']['id'] = 'field_announcement_date_value';
+  $handler->display->display_options['filters']['field_announcement_date_value']['table'] = 'field_data_field_announcement_date';
+  $handler->display->display_options['filters']['field_announcement_date_value']['field'] = 'field_announcement_date_value';
+  $handler->display->display_options['filters']['field_announcement_date_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_announcement_date_value']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_announcement_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Publish dates - end date (field_announcement_date:value2) */
+  $handler->display->display_options['filters']['field_announcement_date_value2']['id'] = 'field_announcement_date_value2';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['table'] = 'field_data_field_announcement_date';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['field'] = 'field_announcement_date_value2';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_announcement_date_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Scheduled Maintenance? (field_scheduled_maintenance) */
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['id'] = 'field_scheduled_maintenance_value';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['table'] = 'field_data_field_scheduled_maintenance';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['field'] = 'field_scheduled_maintenance_value';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['expose']['operator_id'] = 'field_scheduled_maintenance_value_op';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['expose']['label'] = 'Scheduled Maintenance? (field_scheduled_maintenance)';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['expose']['operator'] = 'field_scheduled_maintenance_value_op';
+  $handler->display->display_options['filters']['field_scheduled_maintenance_value']['expose']['identifier'] = 'field_scheduled_maintenance_value';
   $export['catman_announcement'] = $view;
 
   return $export;

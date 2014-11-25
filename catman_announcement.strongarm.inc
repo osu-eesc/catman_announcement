@@ -84,7 +84,6 @@ function catman_announcement_strongarm() {
   $strongarm->name = 'node_options_announcement';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'revision',
   );
   $export['node_options_announcement'] = $strongarm;
 
@@ -106,7 +105,7 @@ function catman_announcement_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_announcement_pattern';
-  $strongarm->value = 'announcement/[node:title]';
+  $strongarm->value = 'announcement/[node:field-announcement-date:value/][node:title]';
   $export['pathauto_node_announcement_pattern'] = $strongarm;
 
   return $export;

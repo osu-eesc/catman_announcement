@@ -100,25 +100,17 @@ function catman_announcement_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'announcement';
   $ds_layout->view_mode = 'search_index';
-  $ds_layout->layout = 'ds_1col';
+  $ds_layout->layout = 'bootstrap_12';
   $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'title',
-        1 => 'field_body',
-      ),
-    ),
-    'fields' => array(
-      'title' => 'ds_content',
-      'field_body' => 'ds_content',
-    ),
     'classes' => array(),
     'wrappers' => array(
-      'ds_content' => 'div',
+      'central' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
   );
   $export['node|announcement|search_index'] = $ds_layout;
 
@@ -128,25 +120,17 @@ function catman_announcement_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'announcement';
   $ds_layout->view_mode = 'search_result';
-  $ds_layout->layout = 'ds_1col';
+  $ds_layout->layout = 'bootstrap_12';
   $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'title',
-        1 => 'search_snippet',
-      ),
-    ),
-    'fields' => array(
-      'title' => 'ds_content',
-      'search_snippet' => 'ds_content',
-    ),
     'classes' => array(),
     'wrappers' => array(
-      'ds_content' => 'div',
+      'central' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
   );
   $export['node|announcement|search_result'] = $ds_layout;
 

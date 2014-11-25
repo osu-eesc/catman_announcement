@@ -42,6 +42,7 @@ function catman_announcement_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_announcement_date',
     'label' => 'Publish dates',
     'required' => 1,
@@ -56,7 +57,7 @@ function catman_announcement_field_default_field_instances() {
       'active' => 1,
       'module' => 'date',
       'settings' => array(
-        'increment' => 15,
+        'increment' => 30,
         'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'none',
@@ -145,9 +146,8 @@ function catman_announcement_field_default_field_instances() {
       ),
       'search_index' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'search_result' => array(
@@ -238,6 +238,62 @@ function catman_announcement_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-announcement-field_scheduled_maintenance'
+  $field_instances['node-announcement-field_scheduled_maintenance'] = array(
+    'bundle' => 'announcement',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_scheduled_maintenance',
+    'label' => 'Scheduled Maintenance?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 7,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Announcement');
@@ -247,6 +303,7 @@ function catman_announcement_field_default_field_instances() {
   t('Enter a few characters from the title of the page the announcement should be displayed on. When the title that you are looking for appears in the auto-complete list, select it. The announcement will appear at the top of that page within the Publish Dates entered above.');
   t('Enter the start and end dates that this announcement should be displayed.');
   t('Publish dates');
+  t('Scheduled Maintenance?');
 
   return $field_instances;
 }
