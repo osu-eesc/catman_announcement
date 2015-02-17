@@ -74,7 +74,7 @@ function catman_announcement_field_default_field_instances() {
     'bundle' => 'announcement',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Enter a few characters from the title of the page the announcement should be displayed on. When the title that you are looking for appears in the auto-complete list, select it. The announcement will appear at the top of that page within the Publish Dates entered above.',
+    'description' => 'Page that announcement will be displayed on.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -116,7 +116,7 @@ function catman_announcement_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'contains',
         'edit_fallback' => 0,
-        'fallback' => 'autocomplete',
+        'fallback' => 'leave_blank',
         'node_link' => array(
           'destination' => 'node',
           'full' => 1,
@@ -300,8 +300,8 @@ function catman_announcement_field_default_field_instances() {
   t('Check to have announcement display on the homepage also.');
   t('Display on homepage');
   t('Display on page');
-  t('Enter a few characters from the title of the page the announcement should be displayed on. When the title that you are looking for appears in the auto-complete list, select it. The announcement will appear at the top of that page within the Publish Dates entered above.');
   t('Enter the start and end dates that this announcement should be displayed.');
+  t('Page that announcement will be displayed on.');
   t('Publish dates');
   t('Scheduled Maintenance?');
 

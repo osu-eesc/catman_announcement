@@ -96,6 +96,55 @@ function catman_announcement_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|announcement|form';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'announcement';
+  $ds_layout->view_mode = 'form';
+  $ds_layout->layout = 'ds_2col_fluid';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'title',
+        1 => 'field_body',
+        2 => 'path',
+        3 => 'redirect',
+      ),
+      'right' => array(
+        4 => 'field_announcement_date',
+        5 => 'field_announcement_reference',
+        6 => 'field_display_on_homepage',
+        7 => 'field_scheduled_maintenance',
+      ),
+      'hidden' => array(
+        8 => '_add_existing_field',
+      ),
+    ),
+    'fields' => array(
+      'title' => 'left',
+      'field_body' => 'left',
+      'path' => 'left',
+      'redirect' => 'left',
+      'field_announcement_date' => 'right',
+      'field_announcement_reference' => 'right',
+      'field_display_on_homepage' => 'right',
+      'field_scheduled_maintenance' => 'right',
+      '_add_existing_field' => 'hidden',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['node|announcement|form'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'node|announcement|search_index';
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'announcement';

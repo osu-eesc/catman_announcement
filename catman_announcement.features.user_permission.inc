@@ -55,5 +55,14 @@ function catman_announcement_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'set announcement published on date'.
+  $permissions['set announcement published on date'] = array(
+    'name' => 'set announcement published on date',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
   return $permissions;
 }

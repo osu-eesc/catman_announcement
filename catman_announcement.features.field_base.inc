@@ -66,6 +66,7 @@ function catman_announcement_field_default_field_bases() {
       'referenceable_types' => array(
         'account_type' => 0,
         'announcement' => 0,
+        'catman_webform' => 0,
         'estimates_expenses' => 0,
         'osu_catalog_publication' => 'osu_catalog_publication',
         'page' => 0,
